@@ -2,6 +2,6 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-// interface declarations
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
+
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> // protocol conformance (whom you follow). NSApplication delegates to AppDeligate
 @end
