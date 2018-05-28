@@ -42,7 +42,7 @@ FILE *gpFile;
                                        styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
                                          backing:NSBackingStoreBuffered
                                            defer:NO];
-    [window setTitle:@"Two Black and White Shapes"];
+    [window setTitle:@"Two Multi Color Shapes"];
     [window center];
     
     view=[[MyView alloc]initWithFrame:win_rect];
