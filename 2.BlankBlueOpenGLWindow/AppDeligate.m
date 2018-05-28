@@ -42,7 +42,7 @@ FILE *gpFile=NULL;
                                        styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
                                          backing:NSBackingStoreBuffered
                                            defer:NO];
-    [window setTitle:@"macOS OpenGL Window"];
+    [window setTitle:@"macOS OpenGL Blue Window"];
     [window center];
     
     view=[[MyView alloc]initWithFrame:win_rect];

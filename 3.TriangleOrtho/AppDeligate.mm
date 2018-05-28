@@ -42,7 +42,7 @@ FILE *gpFile;
                                        styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
                                          backing:NSBackingStoreBuffered
                                            defer:NO];
-    [window setTitle:@"macOS OpenGL Window"];
+    [window setTitle:@"Triangle Ortho"];
     [window center];
     
     view=[[MyView alloc]initWithFrame:win_rect];

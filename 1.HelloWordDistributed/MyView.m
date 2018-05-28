@@ -3,6 +3,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MyView.h"
 
+//Class variables should declare under curly bracket We can not initialize variable while declaraction, there nmust initialize in constructor only
 @implementation MyView
 {
     NSString *centralText;
@@ -10,16 +11,16 @@
 
 -(id)initWithFrame:(NSRect)frame;
 {
-    // code
-    self=[super initWithFrame:frame];
+    
+    self=[super initWithFrame:frame];  //initialize NSView by calling constructor of super and pass frame
     
     if(self)
     {
-        [[self window]setContentView:self];
+        [[self window]setContentView:self]; //set view to window. it is like, self.window.setContentView(self);
         
-        centralText=@"Hello World !!!";
+        centralText=@"Hello World !!!"; //initialize centralText
     }
-    return(self);
+    return(self); //return self means view
 }
 
 - (void)drawRect:(NSRect)dirtyRect

@@ -1,9 +1,6 @@
-
-#import <Foundation/Foundation.h>
-#import <Cocoa/Cocoa.h>
 #import "AppDeligate.h"
-#import "MyView.h"
 
+FILE *gpFile;
 @implementation AppDelegate
 
 //Class variables should declare under curly bracket We can not initialize variable while declaraction, there nmust initialize in constructor only
@@ -18,6 +15,23 @@
 {
 // NSNotificatuin contain, IMSG, WPARAM, LPARAM (sender, what, parameter of what) 
 
+ // ***** Code to get file location for log file ********
+    NSBundle *mainBundle = [NSBundle mainBundle]; // to get path for log file we need to get bundle path (package path)
+    NSString *appDirName = [mainBundle bundlePath]; //get directory name using bungle object
+    NSString *parentDirPath = [appDirName stringByDeletingLastPathComponent];
+    NSString *logFileNameWithPath = [NSString stringWithFormat:@"%@/Log.txt",parentDirPath];
+    const char *pszLogFileNameWithPath=[logFileNameWithPath cStringUsingEncoding:NSASCIIStringEncoding];
+    
+    gpFile = fopen(pszLogFileNameWithPath,"w");
+    
+    if(gpFile==NULL)
+    {
+        printf("Can not create Log file. \n Exiting now...\n");
+        [self release];
+        [NSApp  terminate:self];
+    }
+    fprintf(gpFile,"**** Program started Successfully\n");
+    
     // window width and height
     NSRect win_rect;
     win_rect=NSMakeRect(0.0,0.0,800.0,600.0); // x, y, width, height, this function derived from Carbon. All carbon based functions are 'C' based. And Cocoa based functions are Objective-C
@@ -28,7 +42,7 @@
                                        styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
                                          backing:NSBackingStoreBuffered
                                            defer:NO];
-    [window setTitle:@"Plain MacOS Window"];
+    [window setTitle:@"Two Black and White Shapes"];
     [window center];
     
     view=[[MyView alloc]initWithFrame:win_rect];
@@ -40,7 +54,12 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification  //wmDestroy
 {
-    // code
+    fprintf(gpFile,"***** Program is terminated successfilly. \n");
+    if(gpFile)
+    {
+        fclose(gpFile);
+        gpFile=NULL;
+    }
 }
 
 - (void)windowWillClose:(NSNotification *)notification
