@@ -93,8 +93,8 @@ enum
     const GLchar *vertexShaderSourceCode =
     "#version 410"\
     "\n"\
-    "in vec4 vPosition;"\
-    "in vec4 vColor;"\
+    "layout(location=0) in vec4 vPosition;"\
+    "layout(location=1) in vec4 vColor;"\
     "out vec4 outColor;"\
     "uniform mat4 u_mvp_matrix;"\
     "void main(void)" \
