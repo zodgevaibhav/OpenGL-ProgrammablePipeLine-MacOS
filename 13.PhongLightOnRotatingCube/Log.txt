@@ -1,0 +1,4 @@
+**** Program started Successfully
+OpenGL Version  : 4.1 INTEL-10.32.48
+GLSL Version    : 4.10
+*** Light is on
