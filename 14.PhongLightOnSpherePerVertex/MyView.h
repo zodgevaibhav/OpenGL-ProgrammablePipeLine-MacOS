@@ -7,9 +7,11 @@
 #import <OpenGL/gl3ext.h>
 
 #import "vmath.h"
-
+#import "Sphere.h"
 
 
 // NSApplicationDelegate's method 1 ApplicationDidFinishLaunching
-@interface MyView : NSOpenGLView // MyView extends NSView
+@interface MyView : NSOpenGLView // MyView extrnds NSView
+
+-(void) updateAngleRotate;
 @end
